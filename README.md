@@ -3,7 +3,7 @@ _M. M. Glazenburg, E. Geurken & L. Laan._
 
 This repository contains the code underlying the publication _Quantitative Characterization of Budding Yeast Polarization at the Mesoscale_ (https://doi.org/10.1103/gp4c-y48t).
 
-_AI disclaimer: generative AI was jused for the purpose of preparing the code for publication in a public repository, as well as for optimizing very specific functionalities. The majority of the code waas conceived without AI assistance._
+_AI disclaimer: generative AI was jused for the purpose of preparing the code for publication in a public repository, as well as for optimizing very specific functionalities. The majority of the code was conceived without AI assistance._
 
 ## How to use
 This code can be used to repeat the analyses described in the main publication, i.e. segmenting polarization events and extracting observables. This requires 3D live cell fluorescence imaging data, a segmentation mask and an annotation of polarization events as input.
