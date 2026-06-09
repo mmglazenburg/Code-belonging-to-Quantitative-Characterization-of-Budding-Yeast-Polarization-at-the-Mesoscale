@@ -35,7 +35,7 @@ After obtaining the .txt files containing calculated observables, they can be pl
     - These takes as input:
         1. Directories in which the .txt files outputted by `extract_properties_main.py ` are stored
    - These output, depending on the script:
-     1. `all_properties_compared.py`: scatter + violin plots of individual polarization characteristics with statistical analysis (toggle the desired observable to plot by uncommenting)
+     1. `individual_properties_compared.py`: scatter + violin plots of individual polarization characteristics with statistical analysis (toggle the desired observable to plot by uncommenting)
      2. `compare_mean_intensities.py`: mean intensity traces + individual traces
      3. `compare_mobility.py`: spot mobility during establishment and maintenance with statistical analysis
      4. `compare_variance.py`: fold changes of distribution variances for all observables compared to some reference
