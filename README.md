@@ -17,7 +17,7 @@ Individual polarization events need to be extracted from the main field of view 
 
 1. Use `crop_and_save_cells.py` to perform bleaching correction and extract single cells/polarization events from raw imaging data.
     - This takes as input:
-        1. 3D fluorescent image timelapse as one .tif file
+        1. 3D fluorescent image timelapse as one .tif or .nd2 file
         2. Corresponding 2D cell mask where each cell has a unique and persistant integer identifier
         3. `cell_info.txt` with annotation info containing the cell ID, starting and ending timepoint, and cell type (mother [m] or daughter [d])
     - This outputs:
