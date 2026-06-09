@@ -131,18 +131,19 @@ for dataset_label in dataset_labels:
         ('step_size_after', dataset_label)
     ])
 
-# Compare datasets within each phase
-for i in range(1, len(dataset_labels)):
-    pairs.append([
-        ('step_size_during', dataset_labels[0]),
-        ('step_size_during', dataset_labels[i])
-    ])
+if len(dataset_labels) > 1:
+    # Compare datasets within each phase
+    for i in range(1, len(dataset_labels)):
+        pairs.append([
+            ('step_size_during', dataset_labels[0]),
+            ('step_size_during', dataset_labels[i])
+        ])
 
-for i in range(1, len(dataset_labels)):
-    pairs.append([
-        ('step_size_after', dataset_labels[0]),
-        ('step_size_after', dataset_labels[i])
-    ])
+    for i in range(1, len(dataset_labels)):
+        pairs.append([
+            ('step_size_after', dataset_labels[0]),
+            ('step_size_after', dataset_labels[i])
+        ])
 
 annotator = Annotator(
     ax,

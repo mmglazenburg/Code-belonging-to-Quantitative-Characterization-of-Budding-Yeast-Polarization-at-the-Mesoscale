@@ -140,15 +140,16 @@ ax.ticklabel_format(style='sci', axis='y', scilimits=(-2, 2))
 # =========================
 # STATISTICS
 # =========================
-pairs = [
-    [dataset_labels[i], dataset_labels[j]]
-    for i in range(len(dataset_labels))
-    for j in range(i + 1, len(dataset_labels))
-]
+if len(dataset_labels) > 1:
+    pairs = [
+        [dataset_labels[i], dataset_labels[j]]
+        for i in range(len(dataset_labels))
+        for j in range(i + 1, len(dataset_labels))
+    ]
 
-annotator = Annotator(ax, pairs, data=df, x='dataset', y=property_to_plot)
-annotator.configure(test='Mann-Whitney', text_format='star')
-annotator.apply_and_annotate()
+    annotator = Annotator(ax, pairs, data=df, x='dataset', y=property_to_plot)
+    annotator.configure(test='Mann-Whitney', text_format='star')
+    annotator.apply_and_annotate()
 
 # =========================
 # SHOW

@@ -17,6 +17,8 @@ from lib.prepare_properties import extract_all_properties
 # ---- ACTIVE CONFIGURATION ----
 directory = "path_to_dataset/cells/"
 
+directory = "C:/Data/cropped_cells/"
+
 # =========================
 # PARAMETERS
 # =========================
@@ -28,9 +30,8 @@ frame_time = 20       # seconds per frame
 # =========================
 print('Working on directory ' + directory)
 
+
 extract_all_properties(
     directory,
-    use_cluster_masks=False,
-    plot_ind_traces=False,
-    plot_circs=False
+    plot_ind_traces=True
 )

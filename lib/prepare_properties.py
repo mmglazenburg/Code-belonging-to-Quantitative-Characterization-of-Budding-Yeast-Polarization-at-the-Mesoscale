@@ -13,10 +13,8 @@ from lib.utilities import align_traces, get_signal_start_end
 
 
 def extract_all_properties(directory,
-                           use_cluster_masks=False,
                            threshold_stds=3,
-                           plot_ind_traces=False,
-                           plot_circs=False):
+                           plot_ind_traces=False):
     """
     Extracts polarity-related properties from 3D cell timelapse data and saves
     them to text files in the parent directory.
@@ -25,19 +23,11 @@ def extract_all_properties(directory,
     ----------
     directory : str
         Directory containing cropped cell timelapse .tif files.
-    use_cluster_masks : bool
-        If True, use precomputed cluster masks. Otherwise thresholding is used.
     threshold_stds : int
         Threshold level for segmentation (in standard deviations).
     plot_ind_traces : bool
         Plot intensity traces per cell.
-    plot_circs : bool
-        Plot circularity projections (disabled if plot_ind_traces=True).
     """
-
-    if plot_ind_traces and plot_circs:
-        plot_circs = False
-        print("Warning: cannot plot traces and circularities simultaneously.")
 
     image_files = os.listdir(directory)
 
@@ -69,12 +59,9 @@ def extract_all_properties(directory,
         image_raw = skio.imread(image_path, plugin="tifffile")
         image = normalize_image(image_raw)
 
-        # SEGMENTATION; USE OF CLUSTER MASKS IS NOT IMPLEMENTED IN THIS VERSION
-        if use_cluster_masks:
-            pass
-        else:
-            threshold = variance_threshold(image, std_no=threshold_stds)
-            image_masked = mask_polarity(image, threshold)
+        # SEGMENTATION
+        threshold = variance_threshold(image, std_no=threshold_stds)
+        image_masked = mask_polarity(image, threshold)
 
         # INTENSITY TRACE
         intensity = np.sum(image_masked, axis=(1, 2, 3))
